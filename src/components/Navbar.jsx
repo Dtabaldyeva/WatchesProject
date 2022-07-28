@@ -61,6 +61,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 export default function Navbar() {
   const { searchWord, setSearchWord, getWatches } =
     React.useContext(ClientContext);
+
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
@@ -83,9 +84,11 @@ export default function Navbar() {
   const handleMobileMenuOpen = (event) => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
+
   React.useEffect(() => {
     getWatches();
   }, [searchWord]);
+
   const menuId = "primary-search-account-menu";
   const renderMenu = (
     <Menu
@@ -198,7 +201,7 @@ export default function Navbar() {
               onChange={(e) => {
                 setSearchWord(e.target.value);
               }}
-              placeholder="Search…"
+              placeholder="Поиск..."
               inputProps={{ "aria-label": "search" }}
             />
           </Search>
